@@ -1,0 +1,273 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-06-28T00:29:52.410Z",
+        "before": [
+          {
+            "result": {
+              "duration": 10380983000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefination.beforeScenario()"
+            }
+          }
+        ],
+        "line": 13,
+        "name": "Verify booking.com search filters with some new options added",
+        "description": "",
+        "id": "validating-place-api-s;verify-booking.com-search-filters-with-some-new-options-added;;2",
+        "after": [
+          {
+            "result": {
+              "duration": 4143194700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefination.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1862733900,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "User is on booking.com website home page",
+            "match": {
+              "location": "StepDefination.user_is_on_booking_com_website_home_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 10597721000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User select the booking details as location \"Limerick\" with 2 adults 1 room and 0 childrens",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Limerick\"",
+                  "offset": 44
+                },
+                {
+                  "val": "2",
+                  "offset": 60
+                },
+                {
+                  "val": "1",
+                  "offset": 69
+                },
+                {
+                  "val": "0",
+                  "offset": 80
+                }
+              ],
+              "location": "StepDefination.user_select_the_booking_details_as_location_with_adults_room_and_childrens(String,Integer,Integer,Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 6179001400,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "User search for the hotels",
+            "match": {
+              "location": "StepDefination.user_search_for_the_hotels()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1054834400,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "User is on hotel listing page",
+            "match": {
+              "location": "StepDefination.user_is_on_hotel_listing_page()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1961889800,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "User select filter \"Sauna\" and Verify the hotel listing \"Limerick Strand Hotel\" \"True\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Sauna\"",
+                  "offset": 19
+                },
+                {
+                  "val": "\"Limerick Strand Hotel\"",
+                  "offset": 56
+                },
+                {
+                  "val": "\"True\"",
+                  "offset": 80
+                }
+              ],
+              "location": "StepDefination.user_select_filter_and_Verify_the_hotel_listing(String,String,String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Test"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-06-28T00:30:28.608Z",
+        "before": [
+          {
+            "result": {
+              "duration": 9313061400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefination.beforeScenario()"
+            }
+          }
+        ],
+        "line": 14,
+        "name": "Verify booking.com search filters with some new options added",
+        "description": "",
+        "id": "validating-place-api-s;verify-booking.com-search-filters-with-some-new-options-added;;3",
+        "after": [
+          {
+            "result": {
+              "duration": 4100505400,
+              "status": "passed"
+            },
+            "match": {
+              "location": "StepDefination.afterScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1722959200,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "User is on booking.com website home page",
+            "match": {
+              "location": "StepDefination.user_is_on_booking_com_website_home_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2825444600,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User select the booking details as location \"Limerick\" with 2 adults 1 room and 0 childrens",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Limerick\"",
+                  "offset": 44
+                },
+                {
+                  "val": "2",
+                  "offset": 60
+                },
+                {
+                  "val": "1",
+                  "offset": 69
+                },
+                {
+                  "val": "0",
+                  "offset": 80
+                }
+              ],
+              "location": "StepDefination.user_select_the_booking_details_as_location_with_adults_room_and_childrens(String,Integer,Integer,Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 5852954800,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "User search for the hotels",
+            "match": {
+              "location": "StepDefination.user_search_for_the_hotels()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1035069100,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "User is on hotel listing page",
+            "match": {
+              "location": "StepDefination.user_is_on_hotel_listing_page()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1426776700,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "User select filter \"Sauna\" and Verify the hotel listing \"George Limerick Hotel\" \"False\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Sauna\"",
+                  "offset": 19
+                },
+                {
+                  "val": "\"George Limerick Hotel\"",
+                  "offset": 56
+                },
+                {
+                  "val": "\"False\"",
+                  "offset": 80
+                }
+              ],
+              "location": "StepDefination.user_select_filter_and_Verify_the_hotel_listing(String,String,String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Test"
+          }
+        ]
+      }
+    ],
+    "name": "Validating Place API\u0027s",
+    "description": "",
+    "id": "validating-place-api-s",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/features/filterTesting.feature",
+    "tags": []
+  }
+]
