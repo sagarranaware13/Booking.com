@@ -48,19 +48,6 @@ public class HotelListingPage {
              .until(ExpectedConditions.visibilityOf(element));
     }
  
-//    public void getFilter(String filterName){
-//        
-//    	waitForVisibility(filterSauna);
-//        filterSauna.click();
-//        waitForPageLoaded(driver);
-//     }
-//
-//    public void getFilterStar(){
-//        waitForVisibility(filterStar);
-//        filterStar.click();
-//        waitForPageLoaded(driver);
-//     }
-//    
     public void checkForHotel(String hotel, boolean status) throws Exception {
 		
 		List<WebElement> list=driver.findElements(By.cssSelector(".sr-hotel__name"));
