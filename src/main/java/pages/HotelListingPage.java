@@ -29,10 +29,10 @@ public class HotelListingPage {
     }
 
 	 public void selectFiler(String filterName) {
-	
-		 WebElement element = driver.findElement(By.xpath("//span[contains(text(),'"+filterName+"')]"));
-		 waitForVisibility(element);
-		 element.click();
+
+		 WebElement filter = driver.findElement(By.xpath("//span[contains(text(),'"+filterName+"')]"));
+		 waitForVisibility(filter);
+		 filter.click();
 		 HotelListingPage.waitForPageLoaded(driver);
 		
 	 }
@@ -48,21 +48,19 @@ public class HotelListingPage {
              .until(ExpectedConditions.visibilityOf(element));
     }
  
-    public void getFilter(String filterName){
-        // Wait for txtBox to be visible, then send text
-        waitForVisibility(filterSauna);
-        filterSauna.click();
-        waitForPageLoaded(driver);
-     }
-
-    public void getFilterStar(){
-        // Wait for txtBox to be visible, then send text
-        waitForVisibility(filterStar);
-        filterStar.click();
-        waitForPageLoaded(driver);
-        
-     }
-    
+//    public void getFilter(String filterName){
+//        
+//    	waitForVisibility(filterSauna);
+//        filterSauna.click();
+//        waitForPageLoaded(driver);
+//     }
+//
+//    public void getFilterStar(){
+//        waitForVisibility(filterStar);
+//        filterStar.click();
+//        waitForPageLoaded(driver);
+//     }
+//    
     public void checkForHotel(String hotel, boolean status) throws Exception {
 		
 		List<WebElement> list=driver.findElements(By.cssSelector(".sr-hotel__name"));
@@ -81,13 +79,11 @@ public class HotelListingPage {
 	    		status=false;
 	    		
 	    	}
-	    	
 	    }
 		
 		if(status==false) {
 			
 			System.out.println("Hotel is not present = "+hotel+ "   Is Listed = " + status);
-			
 		}
 	}
 

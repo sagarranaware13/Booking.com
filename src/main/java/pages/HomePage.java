@@ -22,14 +22,13 @@ public class HomePage {
 	public HomePage(WebDriver driver){
 		this.driver = driver;
         PageFactory.initElements(driver, this); 
-        }
+       }
 
 	@FindBy(xpath = "//*[@id='onetrust-accept-btn-handler']")
-	WebElement acceptCookieDesign1;
+	WebElement acceptCookieDesignOne;
 	
 	@FindBy(xpath="//*[@id='cookie_warning']/div/div/div[2]/button")
-    WebElement acceptCookieDesign2;
-	
+    WebElement acceptCookieDesignTwo;
 	
     @FindBy(xpath="//button[@id='onetrust-reject-all-handler']")
     WebElement declineCookie;
@@ -55,25 +54,99 @@ public class HomePage {
     @FindBy(xpath="//span[contains(text(),'Search')]")
     WebElement searchButton;
 
-    private void waitForVisibility(WebElement element) throws Error {
+    @FindBy(xpath = "//div[@data-bui-ref='calendar-next']")
+    WebElement calenderNextMonth;
+    
+    @FindBy(xpath="//*[@id='xp__guests__inputs-container']/div/div/div[3]/div/div[2]/span[1]")
+    WebElement presentRoomCount;
+    
+    @FindBy(xpath = "//button[@aria-label='Increase number of Rooms']")
+	WebElement incrementTheRoom;
+	
+    @FindBy(xpath = "//button[@aria-label='Decrease number of Rooms']")
+	WebElement decreaseTheRoom;
+	
+    @FindBy(xpath="//*[@id='xp__guests__inputs-container']/div/div/div[2]/div/div[2]/span[1]")
+    WebElement presentChildrenCount;
+    
+    @FindBy(xpath = "//button[@aria-label='Increase number of Children']")
+	WebElement incrementTheChildren;
+	
+    @FindBy(xpath = "//button[@aria-label='Decrease number of Children']")
+	WebElement decreaseTheChildren;
+	
+    @FindBy(xpath="//*[@id='xp__guests__inputs-container']/div/div/div[1]/div/div[2]/span[1]")
+    WebElement presentGuestCount;
+    
+    @FindBy(xpath = "//button[@aria-label='Increase number of Adults']")
+	WebElement incrementTheAdult;
+	
+    @FindBy(xpath = "//button[@aria-label='Decrease number of Adults']")
+	WebElement decreaseTheAdult;
+	
+	public void incrementChildren() {
+		waitForVisibility(incrementTheChildren);
+		incrementTheChildren.click();
+	}
+	
+	public void decreaseChildren() {
+		waitForVisibility(decreaseTheChildren);
+		decreaseTheChildren.click();
+	}
+	
+    public String GetPresentChildrenCount() {
+    	waitForVisibility(presentChildrenCount);
+    	return presentChildrenCount.getText();
+    }
+   
+	public void incrementAdult() {
+		waitForVisibility(incrementTheAdult);
+		incrementTheAdult.click();
+	}
+	
+	public void decreaseAdults() {
+		waitForVisibility(decreaseTheAdult);
+		decreaseTheAdult.click();
+	}
+	
+    public String getPresentGuestCount() {
+    	waitForVisibility(presentGuestCount);
+    	return presentGuestCount.getText();
+    }
+    
+    public void incrementRooms() {
+		waitForVisibility(incrementTheRoom);
+		incrementTheRoom.click();
+	}
+	
+	public void decreaseRooms() {
+		waitForVisibility(decreaseTheRoom);
+		decreaseTheRoom.click();
+	}
+	
+    public String getPresentRoomCount() {
+    	waitForVisibility(presentRoomCount);
+    	return presentRoomCount.getText();
+    }
+    public void getCalenderNextMonth() {
+    	waitForVisibility(calenderNextMonth);
+    	calenderNextMonth.click();
+    }
+    void waitForVisibility(WebElement element) throws Error {
         new WebDriverWait(driver, 60)
              .until(ExpectedConditions.visibilityOf(element));
     }
  
     public void getCalenderCheckInLocator(){
-        // Wait for txtBox to be visible, then send text
         waitForVisibility(checkInLocator);
         checkInLocator.click();
     }
     
     public void waitForCalendarToDisplay(){
-        // Wait for txtBox to be visible, then send text
         waitForVisibility(calendarLocator);
-        
     }
     
     public void selectCalenderIcon() {
-    	
     	this.getCalenderCheckInLocator();
     	this.waitForCalendarToDisplay();
     }
@@ -84,42 +157,32 @@ public class HomePage {
     }
     
     public void getGuestsInputsLocator(){
-        // Wait for txtBox to be visible, then send text
         waitForVisibility(guestsInputsLocator);
         guestsInputsLocator.click();
     }
     
     public void waitForGguestInputsBox(){
-        // Wait for txtBox to be visible, then send text
         waitForVisibility(guestInputsBox);
-        
     }
     
     public void selectGuestInputsBoxIcon() {
-    	
     	this.getGuestsInputsLocator();
     	this.waitForGguestInputsBox();
     }
     
     public void declineCookies() throws InterruptedException{
-    	
-    	Thread.sleep(500);
     	waitForVisibility(declineCookie);
     	declineCookie.click();
     }  
 
     public void acceptCookieDesignOne() throws InterruptedException{
-    	
-    	Thread.sleep(500);
-    	waitForVisibility(acceptCookieDesign1);
-    	acceptCookieDesign1.click();
+    	waitForVisibility(acceptCookieDesignOne);
+    	acceptCookieDesignOne.click();
     }
     
     public void acceptCookieDesignTwo() throws InterruptedException{
-    	
-    	Thread.sleep(500);
-    	waitForVisibility(acceptCookieDesign2);
-    	acceptCookieDesign2.click();
+    	waitForVisibility(acceptCookieDesignTwo);
+    	acceptCookieDesignTwo.click();
     }
     
     public void acceptCookiePopUp() throws InterruptedException{
@@ -134,14 +197,13 @@ public class HomePage {
       }  
     
     public String verifyHomePageTitle(){
-
     	waitForPageLoaded(driver);
     	return driver.getTitle();
     }
 
     public void setLocation(String setLocation){
-
-    	location.sendKeys(setLocation);     
+    	location.sendKeys(setLocation);
+    	
     }
     
     public void setLocationDetails(String setLocation){
@@ -149,12 +211,12 @@ public class HomePage {
     	this.setLocation(setLocation);
     }
 
+    // this method is used to select date 
     public void getReservationDates() {
     	
     	this.selectCalenderIcon();
     	
-    	 //Work out today and tomorrow
-	    LocalDate today = LocalDate.now();
+    	LocalDate today = LocalDate.now();
 	    LocalDate reservationStartDate = today.plusMonths(3);
 	    LocalDate reservationEndDate=reservationStartDate.plusDays(1);
 	    
@@ -166,86 +228,76 @@ public class HomePage {
 	    	do {
 	    		nextMonthSelection=driver.findElements(By.xpath("//div[contains(text(),'"+reservationStartMonth+"')]"));
 	    		if(nextMonthSelection.size() < 1) {
-	    	    
-	    			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-			    	driver.findElement(By.xpath("//div[@data-bui-ref='calendar-next']")).click();
+	    	    	
+	    			this.getCalenderNextMonth();
 				}
 		    } while(nextMonthSelection.size() < 1); 
 		    
 	    } catch (NoSuchElementException e) {
 			System.out.println("The month of reservation is not found");
 		}
-
 	    //Use selectDate method to click on the relevant dates
 	    selectDate(driver, reservationStartDate);
 	    selectDate(driver, reservationEndDate);
-
     }
     
     public void selectGuestDetails(int adults, int rooms, int childrens ) {
-    	
     	this.selectGuestInputsBoxIcon();
-    	
-        // to select 2 Adults  
-	    int theAdults=0;
+    
+    	int theAdults=0;
 	    do {
 	    	
-	    	WebElement adultDetail=driver.findElement(By.xpath("//*[@id=\"xp__guests__inputs-container\"]/div/div/div[1]/div/div[2]/span[1]"));
-		     theAdults=Integer.parseInt(adultDetail.getText());
+	    	String adultDetail=getPresentGuestCount();
+		     theAdults=Integer.parseInt(adultDetail);
 		    
 		    if(!(theAdults == adults)) {
 		    	
 		    	if(theAdults < adults) {
-		    		WebElement incrementAdults=driver.findElement(By.xpath("//button[@aria-label='Increase number of Adults']"));
-			    	incrementAdults.click();
+		
+		    		incrementAdult();
 			    		
 		    	} else {
-		    		WebElement decreaseAdults=driver.findElement(By.xpath("//button[@aria-label='Decrease number of Adults']"));
-		    		decreaseAdults.click();
+		    		
+		    		decreaseAdults();
 			    }
 		    }
 	    } while(!(theAdults == adults));
 	
-	    // to select 1 room  
-	    int room=0;
+	   int room=0;
 	    do {
 	    	
-	    	WebElement roomDetails=driver.findElement(By.xpath("//*[@id=\"xp__guests__inputs-container\"]/div/div/div[3]/div/div[2]/span[1]"));
-	    	room=Integer.parseInt(roomDetails.getText());
+	    	String roomDetails=getPresentRoomCount();
+	    	room=Integer.parseInt(roomDetails);
 		    
 		    if(!(room == rooms)) {
 		    	
 		    	if(room < rooms) {
-		    		WebElement incrementRooms=driver.findElement(By.xpath("//button[@aria-label='Increase number of Rooms']"));
-		    		incrementRooms.click();
-			    		
+		    		
+		    		incrementRooms();	
 		    	} else {
-		    		WebElement decreaseRooms=driver.findElement(By.xpath("//button[@aria-label='Decrease number of Rooms']"));
-		    		decreaseRooms.click();
-			    }
+		    		decreaseRooms();
+		    	
+		    	}
 		    }
 	    } while(!(room == rooms));
 	    
-	 // to select 1 room  
 	    int children=0;
 	    do {
 	    	
-	    	WebElement childrenDetails=driver.findElement(By.xpath("//*[@id=\"xp__guests__inputs-container\"]/div/div/div[2]/div/div[2]/span[1]"));
-	    	children=Integer.parseInt(childrenDetails.getText());
+	    	String childrenDetails=GetPresentChildrenCount();
+	    	children=Integer.parseInt(childrenDetails);
 		    
 		    if(!(children == childrens)) {
 		    	
 		    	if(children < childrens) {
-		    		WebElement incrementChildren=driver.findElement(By.xpath("//button[@aria-label='Increase number of Children']"));
-		    		incrementChildren.click();
+		    		incrementChildren();
 			    		
 		    	} else {
-		    		WebElement decreaseChildren=driver.findElement(By.xpath("//button[@aria-label='Decrease number of Children']"));
-		    		decreaseChildren.click();
+		    		decreaseChildren();
+		    		
 			    }
 		    }
 	    } while(!(children == childrens));
-	
     }
     
 	private static void selectDate(WebDriver driver, LocalDate dateToSelect) {
@@ -254,7 +306,6 @@ public class HomePage {
 	    WebDriverWait wait = new WebDriverWait(driver, 5, 5);
 	    
 	    By dateLocator = By.xpath(String.format("//td[@data-date='%s']", formatter.format(dateToSelect)));
-	    //Wait for date element to be visible, then click on it
 	    wait.until(ExpectedConditions.visibilityOfElementLocated(dateLocator)).click();
 		}
 	
